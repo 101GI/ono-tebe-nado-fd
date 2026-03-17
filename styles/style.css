@@ -1,138 +1,155 @@
-.header {
+/* ===============================
+   Базовые стили для шапки (header)
+   =============================== */
+
+.page-header {
   display: grid;
-  grid-template-columns: 1fr min-content 1fr;
+  grid-template-columns: 1fr min-content 1fr;  /* три колонки: меню, логотип, контакты */
   align-items: center;
-  padding-top: 92px;
-  padding-left: 24px;
-  padding-bottom: 92px;
-  padding-right: 24px;
+  padding: 92px 24px;  /* отступы сверху/снизу и слева/справа */
 }
 
-.header_menu {
+/* Меню навигации */
+.nav-menu {
   display: flex;
-  justify-self: center;
-
+  justify-self: center;  /* выравнивание по центру внутри своей колонки */
 }
 
-.menu_links {
+.nav-list {
   display: flex;
-  gap: 32px;
+  gap: 32px;             /* расстояние между пунктами */
   list-style-type: circle;
   padding-right: 7px;
 }
 
-.link_list {
+.nav-item {
   font-size: 18px;
   font-weight: 400;
-  text-underline-offset: 4px; 
+  text-underline-offset: 4px;
   text-decoration: underline;
 }
 
-.main_link_marker {
-  list-style-type: none; 
+/* Текущий пункт меню (главная) — убираем маркер и подчёркивание */
+.nav-item-current {
+  list-style-type: none;
   text-decoration: none;
 }
 
-.link_main {
-  text-decoration: none;
+.nav-link-current {
+  text-decoration: none;  /* ссылка тоже без подчёркивания */
 }
 
-.header_logo {
+/* Логотип */
+.logo {
   width: 148px;
   height: 105px;
 }
 
-.address {
-  padding-left: 185px;
+/* Контактная информация (общий класс для header и footer) */
+.contact-list {
   font-size: 18px;
   line-height: 24.3px;
   letter-spacing: 0.18px;
   font-family: "Raleway", sans-serif;
   list-style-type: none;
-  font-style: normal;  
+  font-style: normal;
 }
 
+/* В шапке контакты сдвинуты вправо */
+.contact-header .contact-list {
+  padding-left: 185px;
+}
 
-.cover {
+/* ===============================
+   Секция hero (обложка)
+   =============================== */
+
+.hero {
   position: relative;
   background-image: url(../images/cover.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   color: white;
   text-transform: uppercase;
   z-index: 0;
-  background-repeat: no-repeat;
-  background-position: center; 
 }
 
-.overlay {
+/* Затемняющий слой */
+.hero-overlay {
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  position: absolute;
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
   z-index: -1;
 }
 
-.cover_title { 
+/* Заголовок hero */
+.hero-title {
   position: relative;
   display: flex;
   flex-direction: column;
   padding: 165px 50px 147px;
-  gap: 20px;   
-} 
- 
-.cover_title span { 
-  font-size: 100px; 
-  font-weight: 700;  
-  line-height: 100%;  
+  gap: 20px;
 }
 
-.text_cover {
+.hero-title span {
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+/* Каждая часть заголовка */
+.hero-title-part {
   display: block;
   line-height: 125px;
 }
 
-.text_center {
+/* Выравнивание текста в строках */
+.text-center {
   text-align: center;
   line-height: 125px;
 }
 
-.text_right {
+.text-right {
   text-align: right;
-  line-height: 120px;  
+  line-height: 120px;
 }
 
-.text_cover { 
-  letter-spacing: 30px; /* буква о разрыв 30, буквы те разрыв 30, буквы ад разрыв 30 */
+/* Управление межбуквенным интервалом */
+.hero-title-part {
+  letter-spacing: 30px;  /* стандартный большой пробел для всех букв */
 }
 
-.text_cover .no_letter_spacing {
-  letter-spacing: 0px; /* сброс межбуквенного разрыва */ 
+.wide-letter {
+  letter-spacing: 60px;  /* для отдельных букв делаем ещё больше */
 }
 
-.text_cover .letter_spacing {
-  letter-spacing: 60px; /* буквы но разрыв 60, буквы бе разрыв 60, буква н разрыв 60 */ 
+.normal-letter {
+  letter-spacing: 0px;   /* сбрасываем интервал для последней буквы */
 }
 
-.cover_description {
+/* Нижняя часть hero (описание и кнопка) */
+.hero-description {
   display: flex;
   align-items: baseline;
   justify-content: space-evenly;
-  padding: 0px 50px 55px 78px;
+  padding: 0 50px 55px 78px;
   gap: 79px;
 }
 
-.cover_text {
+.hero-description-text {
   font-size: 22px;
   font-weight: 400;
   line-height: 28px;
   word-spacing: 18px;
 }
 
-.button {
+.bid-button {
   width: 256px;
   height: 51px;
   border: 1px solid white;
@@ -145,38 +162,42 @@
   text-align: center;
 }
 
-.title_lots {
-  padding-top: 179px;
-  padding-bottom: 26px;
-  padding-left: 64px;
+/* ===============================
+   Секция лотов
+   =============================== */
+
+.lots-title {
+  padding: 179px 0 26px 64px;  /* отступы: сверху, справа, снизу, слева */
   color: #000;
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.container_lots {
+/* Сетка карточек */
+.lots-grid {
   display: flex;
   flex-wrap: wrap;
-  list-style-type: none;
   gap: 25px;
-  justify-content: flex-start; /* указал start */ 
-  padding: 0; 
+  justify-content: flex-start;
+  padding: 0;
   margin: 0 auto;
-  margin-left: 20px; /* левый отступ чтобы совпадало с макетом */  
+  margin-left: 20px;  /* небольшой отступ слева для точного соответствия макету */
 }
 
-.card_lots a { 
-  text-decoration: none; /* дефолтное подчеркивание текста убрано */ 
-}
-
-.card_lots {
+/* Обёртка для каждой карточки */
+.lot-card-wrapper {
   max-width: 334px;
   min-height: 563px;
   flex-grow: 1;
 }
 
-.card {
+.lot-card-wrapper a {
+  text-decoration: none;  /* убираем подчёркивание у ссылки */
+}
+
+/* Базовая карточка */
+.lot-card {
   position: relative;
   height: 100%;
   display: flex;
@@ -189,19 +210,21 @@
   background-position: center;
 }
 
-.card_about_cinema {
-  background-image: url(./../images/card-lot-01.jpg);
+/* Фоновые изображения для разных карточек */
+.lot-card-cinema {
+  background-image: url(../images/card-lot-01.jpg);
 }
 
-.card_about_book {
-  background-image: url(./../images/card-lot-02.jpg);
+.lot-card-book {
+  background-image: url(../images/card-lot-02.jpg);
 }
 
-.card_about_picture {
-  background-image: url(./../images/card-lot-03.jpg);
+.lot-card-picture {
+  background-image: url(../images/card-lot-03.jpg);
 }
 
-.card_title {
+/* Заголовок карточки */
+.lot-card-title {
   color: white;
   font-size: 22px;
   font-weight: 700;
@@ -210,40 +233,48 @@
   text-transform: uppercase;
 }
 
-.link_lots { 
-  text-decoration: none;
-}
-.text_on_card {
+/* Текст карточки */
+.lot-card-text {
   color: white;
   font-size: 20px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 120%; 
+  line-height: 120%;
 }
 
-.view_more {
+/* Особый класс для некоторых параграфов (без дополнительного оформления) */
+.lot-card-text-emphasis {
+  text-decoration: none;
+}
+
+/* Ссылка "посмотреть больше" */
+.more-link {
   display: block;
   text-underline-offset: 3px;
   padding-top: 30px;
   color: black;
   font-size: 20px;
-  font-weight: 400;
   line-height: 23.48px;
   margin-left: 64px;
 }
 
-.about {
+/* ===============================
+   Секция "Об аукционе"
+   =============================== */
+
+.about-section {
   margin-top: 148px;
 }
 
-.about_container {
+/* Сетка для логотипа и текста */
+.about-grid {
   display: grid;
-  grid-template-columns: 334px repeat(1, 1fr);
+  grid-template-columns: 334px 1fr;  /* первая колонка фиксированная, вторая занимает остаток */
   gap: 25px;
-  padding: 34px 24px 0px;
+  padding: 34px 24px 0;
 }
 
-.about_logo {
+/* Контейнер для логотипа (круг) */
+.about-logo-wrapper {
   justify-self: center;
   background-color: #000;
   border-radius: 50%;
@@ -254,26 +285,28 @@
   align-items: center;
 }
 
-.about_logo_image {
+/* Само изображение логотипа */
+.about-logo {
   width: 148px;
   height: 114px;
 }
 
-.about_content {
+/* Блок с текстом */
+.about-text-wrapper {
   display: flex;
   flex-direction: column;
   gap: 24px;
   padding-top: 100px;
 }
 
-.title_about {
+.about-title {
   color: black;
   font-size: 40px;
   font-weight: 700;
   line-height: 46.96px;
 }
 
-.about_text {
+.about-description {
   align-self: flex-start;
   font-family: "Raleway", sans-serif;
   color: black;
@@ -282,37 +315,42 @@
   line-height: 24px;
 }
 
-.text_up {
+.about-paragraph-top {
   padding-top: 76px;
 }
 
-.text_down {
+.about-paragraph-bottom {
   padding-top: 25px;
 }
 
-.footer {
+/* ===============================
+   Подвал (footer)
+   =============================== */
+
+.page-footer {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto;  /* три колонки: контакты, меню, иконки */
   padding: 180px 50px 88px;
   gap: 140px;
   align-items: flex-start;
 }
 
-.footer_address {
-  font-style: normal;
-  padding-left: 0px; 
+/* Контакты в подвале (сбрасываем отступ слева, который был в header) */
+.contact-footer .contact-list {
+  padding-left: 0;
 }
 
-.footer_menu {
+/* Меню в подвале */
+.footer-nav {
   padding-left: 35px;
 }
 
-.footer_menu_links {
+.footer-nav-list {
   list-style-type: none;
   text-underline-offset: 3px;
 }
 
-.footer_links {
+.footer-nav-item {
   color: black;
   text-align: center;
   font-size: 18px;
@@ -320,16 +358,22 @@
   line-height: normal;
 }
 
-.footer_main {
-  text-decoration: none;
+.footer-nav-link {
+  color: black;
+  text-decoration: underline;
 }
 
-.images_footer {
-  width: 48px;
-  height: 48px;
+.footer-nav-link-current {
+  text-decoration: none;  /* для главной ссылки убираем подчёркивание */
 }
 
-.footer_images {
+/* Социальные иконки */
+.social-links {
   display: flex;
   gap: 48px;
+}
+
+.social-icon {
+  width: 48px;
+  height: 48px;
 }
