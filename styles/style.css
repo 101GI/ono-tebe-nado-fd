@@ -3,21 +3,21 @@
    =============================== */
 
 .page-header {
-  display: grid;
-  grid-template-columns: 1fr min-content 1fr;  /* три колонки: меню, логотип, контакты */
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 92px 24px;  /* отступы сверху/снизу и слева/справа */
+  padding: 85px 90px 89px 50px;
 }
 
 /* Меню навигации */
 .nav-menu {
   display: flex;
-  justify-self: center;  /* выравнивание по центру внутри своей колонки */
+  justify-self: center; /* выравнивание по центру внутри своей колонки */
 }
 
 .nav-list {
   display: flex;
-  gap: 32px;             /* расстояние между пунктами */
+  gap: 32px; /* расстояние между пунктами */
   list-style-type: circle;
   padding-right: 7px;
 }
@@ -29,6 +29,10 @@
   text-decoration: underline;
 }
 
+.nav-item:first-child {
+  list-style-type: none;
+}
+
 /* Текущий пункт меню (главная) — убираем маркер и подчёркивание */
 .nav-item-current {
   list-style-type: none;
@@ -36,13 +40,14 @@
 }
 
 .nav-link-current {
-  text-decoration: none;  /* ссылка тоже без подчёркивания */
+  text-decoration: none; /* ссылка тоже без подчёркивания */
 }
 
 /* Логотип */
 .logo {
   width: 148px;
   height: 105px;
+  margin-left: -10rem;
 }
 
 /* Контактная информация (общий класс для header и footer) */
@@ -50,9 +55,17 @@
   font-size: 18px;
   line-height: 24.3px;
   letter-spacing: 0.18px;
+  width: 260px;
   font-family: "Raleway", sans-serif;
   list-style-type: none;
   font-style: normal;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  line-height: 135%;
 }
 
 /* В шапке контакты сдвинуты вправо */
@@ -73,10 +86,11 @@
   color: white;
   text-transform: uppercase;
   z-index: 0;
+  padding-bottom: 3rem;
 }
 
 /* Затемняющий слой */
-.hero-overlay {
+.overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -93,20 +107,21 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 165px 50px 147px;
+  padding: 165px 50px 108px;
   gap: 20px;
 }
 
 .hero-title span {
   font-size: 100px;
   font-weight: 700;
-  line-height: 100%;
+  line-height: 115%;
 }
 
 /* Каждая часть заголовка */
 .hero-title-part {
   display: block;
   line-height: 125px;
+  letter-spacing: 30px;
 }
 
 /* Выравнивание текста в строках */
@@ -119,33 +134,21 @@
   text-align: right;
   line-height: 120px;
 }
-
-/* Управление межбуквенным интервалом */
-.hero-title-part {
-  letter-spacing: 30px;  /* стандартный большой пробел для всех букв */
-}
-
-.wide-letter {
-  letter-spacing: 60px;  /* для отдельных букв делаем ещё больше */
-}
-
 .normal-letter {
-  letter-spacing: 0px;   /* сбрасываем интервал для последней буквы */
+  letter-spacing: 0px; /* сбрасываем интервал для последней буквы */
 }
 
 /* Нижняя часть hero (описание и кнопка) */
 .hero-description {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-evenly;
-  padding: 0 50px 55px 78px;
-  gap: 79px;
+display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .hero-description-text {
   font-size: 22px;
   font-weight: 400;
-  line-height: 28px;
+  line-height: 127%;
   word-spacing: 18px;
 }
 
@@ -167,7 +170,7 @@
    =============================== */
 
 .lots-title {
-  padding: 179px 0 26px 64px;  /* отступы: сверху, справа, снизу, слева */
+  padding: 179px 0 26px 64px; /* отступы: сверху, справа, снизу, слева */
   color: #000;
   font-size: 40px;
   font-weight: 700;
@@ -182,7 +185,8 @@
   justify-content: flex-start;
   padding: 0;
   margin: 0 auto;
-  margin-left: 20px;  /* небольшой отступ слева для точного соответствия макету */
+  margin-left: 20px; /* небольшой отступ слева для точного соответствия макету */
+  list-style: none;
 }
 
 /* Обёртка для каждой карточки */
@@ -190,21 +194,26 @@
   max-width: 334px;
   min-height: 563px;
   flex-grow: 1;
+
 }
 
+
+
 .lot-card-wrapper a {
-  text-decoration: none;  /* убираем подчёркивание у ссылки */
+  text-decoration: none; /* убираем подчёркивание у ссылки */
 }
 
 /* Базовая карточка */
 .lot-card {
-  position: relative;
-  height: 100%;
   display: flex;
-  flex-direction: column;
-  z-index: 1;
-  padding: 51px 40px 48px;
+  align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+  position: relative;
+  max-height: 596px;
+  height: 100%;
+  padding: 40px 48px;
+  z-index: 1;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -227,6 +236,7 @@
 .lot-card-title {
   color: white;
   font-size: 22px;
+  margin-bottom: auto;
   font-weight: 700;
   line-height: 120%;
   text-decoration-line: underline;
@@ -239,10 +249,6 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 120%;
-}
-
-/* Особый класс для некоторых параграфов (без дополнительного оформления) */
-.lot-card-text-emphasis {
   text-decoration: none;
 }
 
@@ -268,9 +274,9 @@
 /* Сетка для логотипа и текста */
 .about-grid {
   display: grid;
-  grid-template-columns: 334px 1fr;  /* первая колонка фиксированная, вторая занимает остаток */
+  grid-template-columns: 334px 1fr; /* первая колонка фиксированная, вторая занимает остаток */
   gap: 25px;
-  padding: 34px 24px 0;
+  padding: 8px 24px 0;
 }
 
 /* Контейнер для логотипа (круг) */
@@ -304,6 +310,7 @@
   font-size: 40px;
   font-weight: 700;
   line-height: 46.96px;
+  text-transform: uppercase;
 }
 
 .about-description {
@@ -315,11 +322,11 @@
   line-height: 24px;
 }
 
-.about-paragraph-top {
+.about-paragraph:first-child {
   padding-top: 76px;
 }
 
-.about-paragraph-bottom {
+.about-paragraph:last-child {
   padding-top: 25px;
 }
 
@@ -328,11 +335,9 @@
    =============================== */
 
 .page-footer {
-  display: grid;
-  grid-template-columns: auto 1fr auto;  /* три колонки: контакты, меню, иконки */
-  padding: 180px 50px 88px;
-  gap: 140px;
-  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  padding: 177px 50px 50px 50px;
 }
 
 /* Контакты в подвале (сбрасываем отступ слева, который был в header) */
@@ -340,10 +345,6 @@
   padding-left: 0;
 }
 
-/* Меню в подвале */
-.footer-nav {
-  padding-left: 35px;
-}
 
 .footer-nav-list {
   list-style-type: none;
@@ -364,7 +365,7 @@
 }
 
 .footer-nav-link-current {
-  text-decoration: none;  /* для главной ссылки убираем подчёркивание */
+  text-decoration: none; /* для главной ссылки убираем подчёркивание */
 }
 
 /* Социальные иконки */
