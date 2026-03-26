@@ -13,6 +13,7 @@
 .nav-menu {
   display: flex;
   justify-self: center; /* выравнивание по центру внутри своей колонки */
+  margin-top: -0.35rem;
 }
 
 .nav-list {
@@ -26,17 +27,10 @@
   font-size: 18px;
   font-weight: 400;
   text-underline-offset: 4px;
-  text-decoration: underline;
 }
 
 .nav-item:first-child {
   list-style-type: none;
-}
-
-/* Текущий пункт меню (главная) — убираем маркер и подчёркивание */
-.nav-item-current {
-  list-style-type: none;
-  text-decoration: none;
 }
 
 .nav-link-current {
@@ -47,18 +41,7 @@
 .logo {
   width: 148px;
   height: 105px;
-  margin-left: -10rem;
-}
-
-/* Контактная информация (общий класс для header и footer) */
-.contact-list {
-  font-size: 18px;
-  line-height: 24.3px;
-  letter-spacing: 0.18px;
-  width: 260px;
-  font-family: "Raleway", sans-serif;
-  list-style-type: none;
-  font-style: normal;
+  margin-left: -9rem;
 }
 
 .contact {
@@ -66,6 +49,9 @@
   flex-direction: column;
   font-size: 18px;
   line-height: 135%;
+  font-style: normal;
+  margin-bottom: 0.4rem;
+  margin-right: -0.25rem;
 }
 
 /* В шапке контакты сдвинуты вправо */
@@ -117,6 +103,10 @@
   line-height: 115%;
 }
 
+.hero-title.text-center {
+  margin-left: 1.5rem;
+}
+
 /* Каждая часть заголовка */
 .hero-title-part {
   display: block;
@@ -140,9 +130,9 @@
 
 /* Нижняя часть hero (описание и кнопка) */
 .hero-description {
-display: flex;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .hero-description-text {
@@ -165,102 +155,94 @@ display: flex;
   text-align: center;
 }
 
-/* ===============================
-   Секция лотов
-   =============================== */
-
-.lots-title {
-  padding: 179px 0 26px 64px; /* отступы: сверху, справа, снизу, слева */
-  color: #000;
-  font-size: 40px;
-  font-weight: 700;
-  text-transform: uppercase;
+.lots {
+  margin: 188px 25px 0;
 }
 
-/* Сетка карточек */
-.lots-grid {
+.lots__heading {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 100%;
+  text-transform: uppercase;
+  padding-left: 40px;
+}
+
+.lots__card-list {
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
-  justify-content: flex-start;
-  padding: 0;
-  margin: 0 auto;
-  margin-left: 20px; /* небольшой отступ слева для точного соответствия макету */
+  padding-top: 27px;
   list-style: none;
 }
 
-/* Обёртка для каждой карточки */
-.lot-card-wrapper {
-  max-width: 334px;
-  min-height: 563px;
+.lots__card-list-item {
+  width: 333px;
+  min-height: 596px;
   flex-grow: 1;
-
 }
 
-
-
-.lot-card-wrapper a {
-  text-decoration: none; /* убираем подчёркивание у ссылки */
-}
-
-/* Базовая карточка */
-.lot-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  position: relative;
-  max-height: 596px;
-  height: 100%;
-  padding: 40px 48px;
-  z-index: 1;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* Фоновые изображения для разных карточек */
-.lot-card-cinema {
-  background-image: url(../images/card-lot-01.jpg);
-}
-
-.lot-card-book {
-  background-image: url(../images/card-lot-02.jpg);
-}
-
-.lot-card-picture {
-  background-image: url(../images/card-lot-03.jpg);
-}
-
-/* Заголовок карточки */
-.lot-card-title {
-  color: white;
-  font-size: 22px;
-  margin-bottom: auto;
-  font-weight: 700;
-  line-height: 120%;
-  text-decoration-line: underline;
-  text-transform: uppercase;
-}
-
-/* Текст карточки */
-.lot-card-text {
-  color: white;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 120%;
+.card-link {
   text-decoration: none;
+  height: 100%;
+  display: block;
+  cursor: pointer;
 }
 
-/* Ссылка "посмотреть больше" */
-.more-link {
-  display: block;
-  text-underline-offset: 3px;
-  padding-top: 30px;
-  color: black;
+.card {
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  height: 100%;
+}
+
+.card_type_film {
+  background-image: url(../images/card-lot-01.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.card_type_book {
+  background-image: url(../images/card-lot-02.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.card_type_picture {
+  background-image: url(../images/card-lot-03.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.card__title {
+  position: relative;
+  color: #fff;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.card__text {
+  position: relative;
+  color: #fff;
+  font-weight: 400;
   font-size: 20px;
-  line-height: 23.48px;
-  margin-left: 64px;
+  line-height: 120%;
+}
+
+.lots__look-more-link {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  display: inline-block;
+  padding-left: 40px;
+  padding-top: 30px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  cursor: pointer;
 }
 
 /* ===============================
@@ -321,13 +303,12 @@ display: flex;
   font-weight: 400;
   line-height: 24px;
 }
+.about-paragraph {
+  padding-top: 25px;
+}
 
 .about-paragraph:first-child {
   padding-top: 76px;
-}
-
-.about-paragraph:last-child {
-  padding-top: 25px;
 }
 
 /* ===============================
@@ -337,7 +318,7 @@ display: flex;
 .page-footer {
   display: flex;
   justify-content: space-between;
-  padding: 177px 50px 50px 50px;
+  padding: 182px 50px 50px 50px;
 }
 
 /* Контакты в подвале (сбрасываем отступ слева, который был в header) */
@@ -345,10 +326,10 @@ display: flex;
   padding-left: 0;
 }
 
-
 .footer-nav-list {
   list-style-type: none;
   text-underline-offset: 3px;
+  margin-left: 3rem;
 }
 
 .footer-nav-item {
